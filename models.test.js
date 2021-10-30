@@ -3,41 +3,25 @@ describe('Help Sending Story Data to the Backend API', function() {
     // declare testing vars
     let userParams;
     let testUser;
-    let storyParams;
-    let testStory;
 
-    beforeEach(function() {
-        // create test user and test story, 
-        userParams = {
-            'username': 'kmoney', 
-            'name': 'karl',
-            'createdAt': 'florida',
-            'favorites': [],
-            'ownstories': []
-        };
+    userParams = {
+        'username': 'kmoney', 
+        'name': 'karl',
+        'createdAt': 'florida',
+        'favorites': [],
+        'ownstories': []
+    };
 
-        testUser = new User(userParams, '123');
+    testUser = new User(userParams, 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6Imttb25leSIsImlhdCI6MTYzNTQ3OTY2OX0.BwGKoNo2e9nESV9ZK295ENppDAr28so7TVBEM6fU_VE');
 
-        storyParams = {
-            'storyId': 123,
-            'title': 'Crime rate drops but Jax Still Murder Capital', 
-            'author': 'News4Jax',
-            'username': 'kmoney',
-            'createdAt': 'florida'
-        }
-        testStory = new Story(storyParams);
-    });
-
-    it('adding a new story should return a story instance', function() {
+    it('adding a new story should return a story instance', async function() {
         newStory = {
             'title': 'Jacksonville Still Murder Capital of FL',
             'author': 'News4Jax',
             'url': 'https://www.news4jax.com/news/local/2021/06/21/despite-overall-crime-rate-drop-in-florida-murders-and-assaults-went-up/'
         }
-        console.log(testUser);
-        console.log(storyParams);
         
         const sl = new StoryList([]);
-        expect(sl.addStory(testUser, newStory)).toBeInstanceOf(Story);
+        expect(await sl.addStory(testUser, newStory)).toBeInstanceOf(Story);
     });
 })
