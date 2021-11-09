@@ -34,3 +34,15 @@ function updateNavOnLogin() {
   $navLogOut.show();
   $navUserProfile.text(`${currentUser.username}`).show();
 }
+
+/** Show story submission form when submit link is clicked */
+
+function showSubmitForm(evt) {
+  console.debug("showSubmitForm", evt);
+
+  storyForm = document.querySelector("form[id='story-form']");
+  storyForm.classList.toggle("hidden");
+}
+
+let storyForm = document.querySelector('#nav-submit');
+storyForm.addEventListener("click", showSubmitForm);

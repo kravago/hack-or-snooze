@@ -41,12 +41,36 @@
   <div class="navbar-brand">
     <a class="nav-link" href="#" id="nav-all">Hack or Snooze</a>
   </div>
+  <div class="links">
+    <a class="nav-link" href="#" id="nav-submit">submit</a>
+  </div>
   <div class="nav-right">
     <a class="nav-link" href="#" id="nav-login">login/signup</a>
     <a class="nav-link" href="#" id="nav-user-profile"></a>
     <a class="hidden" id="nav-logout" href="#"><small>(logout)</small></a>
   </div>
 </nav>
+
+<!-- Submit story form -->
+<section class="container">
+  <form action="#" id="story-form" class="hidden">
+    <h4>Submit a Story</h4>
+    <div class="login-input">
+      <label for="story-author">author</label>
+      <input id="story-author" type="text" placeholder="author name">
+    </div>
+    <div class="login-input">
+      <label for="story-title">title</label>
+      <input id="story-title" type="text" placeholder="story title">
+    </div> 
+    <div class="login-input">
+      <label for="story-url">url</label>
+      <input id="story-url" type="text" placeholder="story url">
+    </div>
+    <button type="submit" class="btn btn-primary">submit</button>
+    <hr>
+  </form>
+</section>
 
 <!-- area for stories (all stories, user stories, favorites) -->
 <section class="stories-container container">
@@ -109,12 +133,6 @@
 <script src="js/nav.js"></script>
 <script src="js/user.js"></script>
 <script src="js/stories.js"></script>
-
-<!-- js testing -->
-<script src="https://unpkg.com/jasmine-core/lib/jasmine-core/jasmine.js"></script>
-<script src="https://unpkg.com/jasmine-core/lib/jasmine-core/jasmine-html.js"></script>
-<script src= "https://unpkg.com/jasmine-core/lib/jasmine-core/boot.js"></script>
-<script src="models.test.js"></script>
 
 </body>
 </html>
