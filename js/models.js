@@ -199,4 +199,15 @@ class User {
       return null;
     }
   }
+
+  async addFavoriteStory(storyId) {
+    try {
+      const response = await axios.post(`${BASE_URL}/users/${this.username}/favorites/${storyId}`)
+    } catch (err) {
+      console.error("addFavoriteStory post request failed", err)
+      return null
+    };
+  }
+
+
 }
