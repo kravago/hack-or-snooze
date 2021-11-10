@@ -74,6 +74,7 @@ class StoryList {
    */
 
   async addStory(user, newStory) {
+    // add new story to storylist class so it will show on home page
     const postReq = await axios.post(`${BASE_URL}/stories`,
       {'token': user.loginToken, 'story': newStory});
 
@@ -203,20 +204,21 @@ class User {
   async addFavoriteStory(storyId) {
     try {
       const response = await axios.post(`${BASE_URL}/users/${this.username}/favorites/${storyId}`,
-        {token: `${this.loginToken}`})
+        {'token': `${this.loginToken}`}
+      )
       console.log(response)
     } catch (err) {
-      console.error("addFavoriteStory post request failed", err)
       return null
     };
   }
 
   async removeFavoriteStory(storyId) {
     try {
-      const response = await axios.delete(`${BASE_URL}/users/${this.username}/favorites/${storyId}`, 
-        {token: `${this.loginToken}`}
-      )
-      console.log(response)
+      const response = await axios({
+        method: 'delete',
+        url: `${BASE_URL}/users/${this.username}/favorites/${storyId}`, 
+        data: {'token': `${this.loginToken}`}
+      })
     } catch (err) {
       console.error("removeFavoriteStory post request failed", err)
       return null
