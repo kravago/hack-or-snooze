@@ -209,5 +209,13 @@ class User {
     };
   }
 
+  async removeFavoriteStory(storyId) {
+    try {
+      const response = await axios.delete(`${BASE_URL}/users/${this.username}/favorites/${storyId}`)
+    } catch (err) {
+      console.error("removeFavoriteStory post request failed", err)
+      return null
+    };
+  }
 
 }
