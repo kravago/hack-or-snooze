@@ -25,6 +25,7 @@ function generateStoryMarkup(story) {
   const hostName = story.getHostName();
   return $(`
       <li id="${story.storyId}">
+        <span><i class="far fa-star"></i></span>
         <a href="${story.url}" target="a_blank" class="story-link">
           ${story.title}
         </a>
@@ -49,4 +50,18 @@ function putStoriesOnPage() {
   }
 
   $allStoriesList.show();
+}
+
+/**
+ * Handle the submission of a story to the API
+ */
+
+async function submitUserStory(evt) {
+  evt.preventDefault();
+
+  // TODO: 
+  // * make a request to API submitting the story
+  // * add story to user.ownStories
+  // * hide the form
+  // * update the page again - getAndShowStoriesOnStart
 }
