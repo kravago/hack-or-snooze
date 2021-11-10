@@ -113,4 +113,12 @@ function updateUIOnUserLogin() {
   $allStoriesList.show();
 
   updateNavOnLogin();
+
+  // hide the login/sign up forms 
+  const forms = [
+    $loginForm,
+    $signupForm
+  ];
+
+  forms.forEach(c => c.hide());
 }
