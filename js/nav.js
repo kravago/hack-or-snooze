@@ -38,10 +38,7 @@ function updateNavOnLogin() {
 /** Show story submission form when submit link is clicked */
 
 function showSubmitForm(evt) {
-  console.debug("showSubmitForm", evt);
-
-  storyForm = document.querySelector("form[id='story-form']");
-  storyForm.classList.toggle("hidden");
+  $storyForm.show();
 }
 
 let storyForm = document.querySelector('#nav-submit');
