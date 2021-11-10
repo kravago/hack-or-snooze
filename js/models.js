@@ -202,7 +202,9 @@ class User {
 
   async addFavoriteStory(storyId) {
     try {
-      const response = await axios.post(`${BASE_URL}/users/${this.username}/favorites/${storyId}`)
+      const response = await axios.post(`${BASE_URL}/users/${this.username}/favorites/${storyId}`,
+        {token: `${this.loginToken}`})
+      console.log(response)
     } catch (err) {
       console.error("addFavoriteStory post request failed", err)
       return null
@@ -211,7 +213,10 @@ class User {
 
   async removeFavoriteStory(storyId) {
     try {
-      const response = await axios.delete(`${BASE_URL}/users/${this.username}/favorites/${storyId}`)
+      const response = await axios.delete(`${BASE_URL}/users/${this.username}/favorites/${storyId}`, 
+        {token: `${this.loginToken}`}
+      )
+      console.log(response)
     } catch (err) {
       console.error("removeFavoriteStory post request failed", err)
       return null
