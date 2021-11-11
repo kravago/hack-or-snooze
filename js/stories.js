@@ -57,11 +57,23 @@ function putStoriesOnPage() {
  */
 
 async function submitUserStory(evt) {
+  console.debug('submitUserStory');
   evt.preventDefault();
 
-  // TODO: 
   // * make a request to API submitting the story
   // * add story to user.ownStories
   // * hide the form
   // * update the page again - getAndShowStoriesOnStart
+
+  const response = await StoryList.addStory(currentUser, 
+    {
+      title: $('#story-title').val(),
+      author: $('#story-author').val(),
+      url: $('#story-url').val()
+    });
+    currentUser.ownStories.push(response)
+    $storyForm.hide();
+    getAndShowStoriesOnStart();
 }
+
+$('#submit-story-btn').on('click', submitUserStory);
