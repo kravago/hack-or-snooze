@@ -73,15 +73,13 @@ class StoryList {
    * Returns the new Story instance
    */
 
-  async addStory(user, newStory) {
+  static async addStory(user, newStory) {
     // add new story to storylist class so it will show on home page
     const postReq = await axios.post(`${BASE_URL}/stories`,
       {'token': user.loginToken, 'story': newStory});
 
     const responseStory = new Story(postReq.data);
-    this.stories.push(responseStory);
     return responseStory
-
   }
 }
 
